@@ -1,0 +1,9 @@
+quant_features = ['casual', 'registered', 'cnt', 'temp', 'hum', 'windspeed']
+scaled_features = {}
+for each in quant_features:
+    mean, std = data[each].mean(), data[each].std()
+    scaled_features[each] = [mean, std]
+    data.loc[:, each] = (data[each] - mean)/std
+    
+train_features, train_targets = features[:-60*24], targets[:-60*24]
+val_features, val_targets = features[-60*24:], targets[-60*24:]
