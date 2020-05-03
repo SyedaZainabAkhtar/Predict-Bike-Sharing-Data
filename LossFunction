@@ -1,0 +1,4 @@
+plt.plot(losses['train'], label='Training loss')
+plt.plot(losses['validation'], label='Validation loss')
+plt.legend()
+_ = plt.ylim()
